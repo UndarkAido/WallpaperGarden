@@ -480,7 +480,7 @@ function reduce(numerator, denominator) {
 }
 
 router.post(/^.+$/, async function (req, res, next) {
-    if(req.hostname !== "localhost"){
+    if(req.header("Public") === "true"){
         res.sendStatus(403);
         return;
     }
