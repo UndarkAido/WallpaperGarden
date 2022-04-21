@@ -20,4 +20,8 @@ app.get('/', function (req, res) {
 app.use('/api', apiRouter);
 app.use('/images', imagesRouter);
 
+app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
 module.exports = app;
