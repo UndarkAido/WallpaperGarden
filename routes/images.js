@@ -432,7 +432,7 @@ async function getRandom(req, res, next) {
         path: `${entry.substring(8)}${ext}`
     }
     if (resize) {
-        gi_req[query] = {
+        gi_req["query"] = {
             width: req.query.width,
             height: req.query.height,
             crop_left: crop.left,
