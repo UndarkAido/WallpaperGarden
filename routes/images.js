@@ -426,6 +426,10 @@ async function getRandom(req, res, next) {
         return;
     }
     let entry = Object.keys(data)[Math.floor(Math.random() * Object.keys(data).length)];
+    if (!entry) {
+        res.status(404).send("404: No images exists at that resolution or ratio");
+        return;
+    }
     const crop = data[entry].crops[Math.floor(Math.random() * data[entry].crops.length)];
     console.log(entry.substring(8), "XXX");
     let gi_req = {
